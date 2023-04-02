@@ -105,23 +105,61 @@ int categories()
         printf("2. Social \n");
         printf("3. Games \n");
         printf("4. Shopping \n");
-        printf("5. Shopping \n");
-        printf("6. Productivity \n");
-        printf("7. Exit\n");
+        printf("5. Productivity \n");
+        printf("6. Exit\n");
 
         int choice;
         do {
             printf("Introdu varianta dorita: ");
             scanf("%d", &choice);
-        } while(choice < 1 || choice > 7);
+        } while(choice < 1 || choice > 6);
 
         system("cls");
 
         if (choice == 1) {
             printf("-= Entertainment =-\n");
+
+
+            FILE* fp = fopen("entertainment.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s", stats[i].nume);
+                }
+                printf("\n");
+
             system("pause");
         } else if (choice == 2) {
             printf("-= Social =-\n");
+
+            FILE* fp = fopen("social.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s", stats[i].nume);
+                }
+                printf("\n");
+
             system("pause");
         } else if (choice == 3) {
             printf("-= Games =-\n");
@@ -149,14 +187,50 @@ int categories()
             system("pause");
         } else if (choice == 4) {
             printf("-= Shopping =-\n");
+
+            FILE* fp = fopen("shopping.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s", stats[i].nume);
+                }
+                printf("\n");
+
             system("pause");
+
         } else if (choice == 5) {
-            printf("-= Shoppingt =-\n");
+            printf("-= Productivity =-\n");
+
+            FILE* fp = fopen("productivity.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s", stats[i].nume);
+                }
+                printf("\n");
+
             system("pause");
         } else if (choice == 6) {
-            printf("-= Productivity =-\n");
-            system("pause");
-        } else if (choice == 7) {
             return 0;
         }
 }
