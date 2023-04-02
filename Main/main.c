@@ -125,6 +125,27 @@ int categories()
             system("pause");
         } else if (choice == 3) {
             printf("-= Games =-\n");
+
+
+            FILE* fp = fopen("games.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s", stats[i].nume);
+                }
+                printf("\n");
+
+
             system("pause");
         } else if (choice == 4) {
             printf("-= Shopping =-\n");
