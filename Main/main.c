@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+struct stats{
+    char nume[50];
+    char nr[15];
+} stats[100];
+
 int main_menu()
 {
     while (1 == 1) {
@@ -58,13 +64,27 @@ int main_menu()
             system("pause");
 
         }else if (choice == 5) {
-            printf("-= STATISTICS =-\n");
-            printf(" Entertainment - 3\n");
-            printf(" Social - 1\n");
-            printf(" Games - 40\n");
-            printf(" Shopping - 5\n");
-            printf(" Shopping - 40\n");
-            printf(" Productivity - 10 \n");
+                FILE* fp = fopen("statistics.txt", "r");
+              int nrCat;
+
+                fscanf(fp, "%d", &nrCat);
+                printf("-= VIZUALIZARE CATEGORII (total: %d) =-\n", nrCat);
+
+                fgetc(fp); /// scapam de \n de pe prima linie
+
+
+                for (int i = 0; i < nrCat; ++i) {
+                    fgets(stats[i].nume, 50, fp);
+                    fgets(stats[i].nr, 15, fp);
+
+                }
+
+                for (int i = 0; i < nrCat; ++i) {
+                    printf("%s%s", stats[i].nume,stats[i].nr);
+
+
+                }
+                printf("\n");
             system("pause");
 
         } else if (choice == 6) {
@@ -138,7 +158,7 @@ int main() {
         system("cls");
 
         if (choice == 1) {
-            printf("-= CREATE USER =-\n");
+            printf("-= USER LOGIN=-\n");
             printf("Enter email address: ");
 
             char email[321],password[321];
@@ -147,6 +167,9 @@ int main() {
 
             printf("Enter password: ");
             scanf("%s", &password);
+
+
+
 
 
             printf("\n\nLogin successful\n");
@@ -174,3 +197,6 @@ int main() {
         }
 
     }
+
+    return 0;
+}
